@@ -8,6 +8,7 @@ import jakarta.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,6 +20,9 @@ public class TaskController {
 
 	@Autowired
 	private TaskService taskService;
+	
+	@Autowired
+	private TaskRepo taskRepo;
 
 	@PostMapping
 	public ResponseEntity<Task> addTask(@Valid @RequestBody Task task) {
@@ -59,6 +63,12 @@ public class TaskController {
 	    } else {
 	        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	    }
+	}
+	
+	@GetMapping("/api/tasks/user")
+	public ResponseEntity<List<Task>> getTasksForUser() {
+	    String email = SecurityContextHolder.getContext().getAuthentication().getName(); // from JWT
+	    return ResponseEntity.ok(taskRepo.findByEmail(email));
 	}
 	}
 

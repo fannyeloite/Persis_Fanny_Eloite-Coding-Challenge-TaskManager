@@ -1,0 +1,44 @@
+/* src/components/FormStyles.css */
+
+.login-wrapper, .form-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.login-card, .signup-card {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 500px;
+}
+
+.signup-card {
+  background-color: rgba(255, 248, 225, 0.6);
+  border: 2px solid #a00798;
+}
+
+.form-title {
+  font-weight: bold;
+  font-size: 30px;
+  color: #892bc0e7;
+  text-align: center;
+}
+
+.form-control {
+  height: 45px;
+  font-size: 16px;
+  background-color: #fef2fcb2;
+  border: 1px solid #9119c0f6;
+  color: #2c3e50;
+  transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.form-control:focus {
+  border-color: #d35400;
+  box-shadow: 0 0 6px rgba(211, 84, 0, 0.5);
+  background-color: #fff8f0;
+}
